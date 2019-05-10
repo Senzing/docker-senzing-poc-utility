@@ -21,6 +21,7 @@ RUN apt-get update \
     ipython \
     itop \
     jq \
+    less \
     net-tools \
     pstack \
     python-dev \
@@ -37,11 +38,26 @@ RUN apt-get update \
 RUN pip install \
     csvkit \
     fuzzywuzzy \
+    python-levenshtein \
+    pyodbc \
+    setuptools
+
+# Install packages via pip3.
+
+RUN pip3 install \
+    csvkit \
+    fuzzywuzzy \
     ptable \
     pandas \
     python-levenshtein \
     pyodbc \
     setuptools
+
+# Set up user environment.
+
+RUN echo 'alias ll="ls -l"' >> ~/.bashrc; \
+    echo 'alias python="python3"' >> ~/.bashrc; \
+    echo 'alias pip="pip3"' >> ~/.bashrc;
 
 # Copy files from repository.
 
