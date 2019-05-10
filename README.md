@@ -193,7 +193,9 @@ To improve speed, run the docker container with an in-memory SQLite database.
     G2Connection=sqlite3://na:na@/data/G2C.db
     ```
 
-1. :warning: To persist the SQLite database file, copy to mounted volume.  Example:
+1. :warning: To persist the SQLite database file,
+   copy file to mounted volume before exiting container.
+   Example:
 
     ```console
     cp /data/G2C.db /opt/senzing/G2C.db
