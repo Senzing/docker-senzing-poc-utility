@@ -153,6 +153,52 @@ Run the docker container accessing an external MySQL database in a docker networ
       senzing/senzing-poc-utility /bin/bash
     ```
 
+#### Variation 4
+
+To improve speed, run the docker container with an in-memory SQLite database.
+
+1. :pencil2: Set environment variables.  Example:
+
+    ```console
+    export SENZING_DIR=/opt/senzing
+    ```
+
+1. Run the docker container.  Example:
+
+    ```console
+    sudo docker run \
+      --interactive \
+      --rm \
+      --tty \
+      --volume ${SENZING_DIR}:/opt/senzing \
+      --tmpfs /data \
+      senzing/senzing-poc-utility /bin/bash
+    ```
+
+1. In the docker container, copy database to `tmpfs`.  Example:
+
+    ```console
+    cp /opt/senzing/g2/sqldb/G2C.db  /data/G2C.db
+    ```
+
+1. :pencil2: Modify `${SENZING_DIR}/g2/python/G2Module.ini`.  Example:
+
+    ```console
+    CONNECTION=sqlite3://na:na@/data/G2C.db
+    ```
+
+1. :pencil2: Modify `${SENZING_DIR}/g2/python/G2Project.ini`.  Example:
+
+    ```console
+    G2Connection=sqlite3://na:na@/data/G2C.db
+    ```
+
+1. :warning: To persist the SQLite database file, copy to mounted volume.  Example:
+
+    ```console
+    cp /data/G2C.db /opt/senzing/G2C.db
+    ```
+
 ## Develop
 
 ### Prerequisite software
