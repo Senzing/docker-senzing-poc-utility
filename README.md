@@ -66,6 +66,11 @@ This repository assumes a working knowledge of:
 
 Run the docker container with internal SQLite database and external volume.
 
+1. **Important:**
+   Before running `senzing/senzing-poc-utility`,
+   run [senzing/init-container](https://github.com/Senzing/docker-init-container) to initialize the database.
+
+
 1. :pencil2: Set environment variables.  Example:
 
     ```console
@@ -86,6 +91,11 @@ Run the docker container with internal SQLite database and external volume.
 #### Variation 2
 
 Run the docker container accessing an external PostgreSQL database and volumes.
+
+1. **Important:**
+   Before running `senzing/senzing-poc-utility`,
+   run [senzing/init-container](https://github.com/Senzing/docker-init-container) to initialize the database.
+
 
 1. :pencil2: Set environment variables.  Example:
 
@@ -116,6 +126,11 @@ Run the docker container accessing an external PostgreSQL database and volumes.
 #### Variation 3
 
 Run the docker container accessing an external MySQL database in a docker network. Example:
+
+1. **Important:**
+   Before running `senzing/senzing-poc-utility`,
+   run [senzing/init-container](https://github.com/Senzing/docker-init-container) to initialize the database.
+
 
 1. :pencil2: Determine docker network. Example:
 
@@ -156,6 +171,10 @@ Run the docker container accessing an external MySQL database in a docker networ
 #### Variation 4
 
 To improve speed, run the docker container with an in-memory SQLite database.
+
+1. **Important:**
+   Before running `senzing/senzing-poc-utility`,
+   run [senzing/init-container](https://github.com/Senzing/docker-init-container) to initialize the database.
 
 1. :pencil2: Set environment variables.  Example:
 
@@ -236,7 +255,9 @@ The following software programs need to be installed:
 1. Option #1 - Using docker command and GitHub.
 
     ```console
-    sudo docker build --tag senzing/senzing-poc-utility https://github.com/senzing/docker-senzing-poc-utility.git
+    sudo docker build \
+      --tag senzing/senzing-poc-utility \
+      https://github.com/senzing/docker-senzing-poc-utility.git
     ```
 
 1. Option #2 - Using docker command and local repository.
