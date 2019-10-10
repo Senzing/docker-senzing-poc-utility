@@ -5,6 +5,10 @@
 The `senzing/senzing-poc-utility` docker image is used for running the Senzing Proof of Concept.
 Python commands stored in `/opt/senzing/g2/python` can be run in the docker container.
 
+### Related artifacts
+
+1. [DockerHub](https://hub.docker.com/r/senzing/senzing-poc-utility)
+
 ### Contents
 
 1. [Expectations](#expectations)
