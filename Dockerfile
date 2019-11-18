@@ -1,11 +1,11 @@
-ARG BASE_IMAGE=senzing/senzing-base:1.1.0
+ARG BASE_IMAGE=senzing/senzing-base:1.3.0
 FROM ${BASE_IMAGE}
 
-ENV REFRESHED_AT=2019-07-23
+ENV REFRESHED_AT=2019-11-13
 
 LABEL Name="senzing/senzing-poc-utility" \
       Maintainer="support@senzing.com" \
-      Version="1.1.0"
+      Version="1.2.0"
 
 HEALTHCHECK CMD ["/app/healthcheck.sh"]
 
@@ -43,12 +43,6 @@ RUN pip3 install \
     pyodbc \
     setuptools
 
-# Set up user environment.
-
-RUN echo 'alias ll="ls -l"' >> ~/.bashrc; \
-    echo 'alias python="python3"' >> ~/.bashrc; \
-    echo 'alias pip="pip3"' >> ~/.bashrc;
-
 # Copy files from repository.
 
 COPY ./rootfs /
@@ -56,6 +50,12 @@ COPY ./rootfs /
 # Make non-root container.
 
 USER 1001
+
+# Set up user environment.
+
+RUN echo 'alias ll="ls -l"' >> ~/.bashrc; \
+    echo 'alias python="python3"' >> ~/.bashrc; \
+    echo 'alias pip="pip3"' >> ~/.bashrc;
 
 # Runtime execution.
 
