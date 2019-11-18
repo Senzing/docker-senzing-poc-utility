@@ -49,10 +49,10 @@ COPY ./rootfs /
 
 # Set up user environment.
 
-RUN echo "\n# Added by Dockerfile" >> >> ~/.bashrc; \
- && echo 'alias ll="ls -l"' >> >> ~/.bashrc;\
- && echo 'alias python="python3"' >> >> ~/.bashrc; \
- && echo 'alias pip="pip3"' >> >> ~/.bashrc;
+RUN echo "\n# Added by Dockerfile" >> ~/.bashrc \
+ && echo 'alias ll="ls -l"' >> ~/.bashrc \
+ && echo 'alias python="python3"' >> ~/.bashrc \
+ && echo 'alias pip="pip3"' >> ~/.bashrc
 
 # Make non-root container.
 
