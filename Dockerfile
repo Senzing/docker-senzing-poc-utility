@@ -47,15 +47,18 @@ RUN pip3 install \
 
 COPY ./rootfs /
 
-# Make non-root container.
-
-USER 1001
-
 # Set up user environment.
 
-RUN echo 'alias ll="ls -l"' >> ~/.bashrc; \
-    echo 'alias python="python3"' >> ~/.bashrc; \
-    echo 'alias pip="pip3"' >> ~/.bashrc;
+RUN echo "\n# Added by Dockerfile" >> >> ~/.bashrc; \
+ && echo 'alias ll="ls -l"' >> >> ~/.bashrc;\
+ && echo 'alias python="python3"' >> >> ~/.bashrc; \
+ && echo 'alias pip="pip3"' >> >> ~/.bashrc;
+
+# Make non-root container.
+
+# FIXME: "alias" cannot be used with a UID that does not have a home directory.
+#        Therefore, this container runs as a "root container" by default.
+# USER 1001
 
 # Runtime execution.
 
