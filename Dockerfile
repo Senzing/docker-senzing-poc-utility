@@ -39,6 +39,7 @@ RUN pip3 install \
     fuzzywuzzy \
     ptable \
     pandas \
+    pysnooper \
     python-levenshtein \
     pyodbc \
     setuptools
