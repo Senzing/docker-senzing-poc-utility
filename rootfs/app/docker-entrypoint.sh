@@ -213,7 +213,7 @@ if [ "${PROTOCOL}" == "mysql" ]; then
 
   wget \
     --output-document=${SENZING_ROOT}/tmp/libmysqlclient.deb \
-    http://repo.mysql.com/apt/debian/pool/mysql-8.0/m/mysql-community/libmysqlclient21_8.0.16-2debian9_amd64.deb
+    http://repo.mysql.com/apt/debian/pool/mysql-8.0/m/mysql-community/libmysqlclient21_8.0.20-1debian10_amd64.deb
 
   dpkg --fsys-tarfile ${SENZING_ROOT}/tmp/libmysqlclient.deb \
     | tar xOf - ./usr/lib/x86_64-linux-gnu/libmysqlclient.so.21.0.16 \
